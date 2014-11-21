@@ -1,13 +1,20 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Create new type of matrix which can be cached inverse
 
-## Write a short comment describing this function
+## makeCacheMatrix is used to create new type of matrix
+## input: matrix
+## output: cachedMatrix
+## set : set the matrix
+## get : get the matrix
+## setinverse: set the inverse of matrix
+## getinverse: get the inverse of matrix
+
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
     x <<- y
-    inv <<- NULL
+    # if matrix was modified, then reset inv
+    inv <<- NULL 
   }
   get <- function() x
   setinverse <- function(inverse) inv <<- inverse
@@ -18,7 +25,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## cacheSolve is used to get cached inverse
+## input: cachedMatrix
+## output: inverse of cachedMatrix
 
 cacheSolve <- function(x, ...) {
   inv <- x$getinverse()
